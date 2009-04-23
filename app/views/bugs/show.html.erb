@@ -1,0 +1,13 @@
+<p>
+  <b>Projeto:</b>
+  <%=h @bug.projeto %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%=h @bug.descricao %>
+</p>
+
+
+<%= link_to 'Edit', edit_bug_path(@bug) %> |
+<%= link_to 'Back', bugs_path %>

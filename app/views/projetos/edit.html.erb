@@ -1,0 +1,24 @@
+<h1>Editing projeto</h1>
+
+<% form_for(@projeto) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </p>
+  <p>
+    <%= f.label :responsavel %><br />
+    <%= f.text_field :responsavel %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @projeto %> |
+<%= link_to 'Back', projetos_path %>

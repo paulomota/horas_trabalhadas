@@ -343,3 +343,1440 @@ Processing UsersController#index (for 127.0.0.1 at 2009-04-22 10:50:55) [GET]
 Rendering template within layouts/users
 Rendering users/index
 Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090421145445)
+Migrating to CreateProjetos (20090422205713)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "projetos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar(255), "descricao" varchar(255), "responsavel" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090422205713')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("projetos")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 17:59:23) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 1672ms (View: 1656, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#new (for 127.0.0.1 at 2009-04-22 17:59:27) [GET]
+Rendering template within layouts/projetos
+Rendering projetos/new
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/new]
+
+
+Processing ProjetosController#create (for 127.0.0.1 at 2009-04-22 17:59:58) [POST]
+  Parameters: {"commit"=>"Create", "projeto"=>{"nome"=>"Introdução Rails", "responsavel"=>"Paulo Mota", "descricao"=>"aprender rails apartir da apresentação de Túlio Ornelas"}, "authenticity_token"=>"0ZzHyrY4tLoE3os/bmAFwRhEY6/cOJ6ENU/euBQtghk="}
+  [4;35;1mProjeto Create (16.0ms)[0m   [0mINSERT INTO "projetos" ("updated_at", "nome", "responsavel", "descricao", "created_at") VALUES('2009-04-22 20:59:58', 'Introdução Rails', 'Paulo Mota', 'aprender rails apartir da apresentação de Túlio Ornelas', '2009-04-22 20:59:58')[0m
+Redirected to http://localhost:3000/projetos/1
+Completed in 281ms (DB: 16) | 302 Found [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 17:59:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:00:00) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 156ms (View: 125, DB: 0) | 200 OK [http://localhost/projetos]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090421145445)
+Migrating to CreateProjetos (20090422205713)
+Migrating to CreateBugs (20090422210927)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE "bugs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "projeto_id" integer NOT NULL, "descricao" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090422210927')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("bugs")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("projetos")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:25:57) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (16.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `validates_uniqueness' for #<Class:0x3a23ac0>):
+  app/models/projeto.rb:4
+  app/controllers/projetos_controller.rb:5:in `index'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (16.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:26:03) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `validates_uniqueness' for #<Class:0x4a7df60>):
+  app/models/projeto.rb:4
+  app/controllers/projetos_controller.rb:5:in `index'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:26:57) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 140ms (View: 125, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#new (for 127.0.0.1 at 2009-04-22 18:27:01) [GET]
+Rendering template within layouts/projetos
+Rendering projetos/new
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/new]
+
+
+Processing ProjetosController#new (for 127.0.0.1 at 2009-04-22 18:27:12) [GET]
+Rendering template within layouts/projetos
+Rendering projetos/new
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos/new]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:27:32) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#edit (for 127.0.0.1 at 2009-04-22 18:27:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/edit
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1/edit]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:27:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 157ms (View: 141, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:27:40) [GET]
+  Parameters: {"projeto_id"=>"1"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:28:39) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 94ms (View: 47, DB: 0) | 200 OK [http://localhost/projetos/]
+
+
+Processing ProjetosController#new (for 127.0.0.1 at 2009-04-22 18:28:41) [GET]
+Rendering template within layouts/projetos
+Rendering projetos/new
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/projetos/new]
+
+
+Processing ProjetosController#create (for 127.0.0.1 at 2009-04-22 18:28:45) [POST]
+  Parameters: {"commit"=>"Create", "projeto"=>{"nome"=>"1", "responsavel"=>"1", "descricao"=>"1"}, "authenticity_token"=>"0ZzHyrY4tLoE3os/bmAFwRhEY6/cOJ6ENU/euBQtghk="}
+  [4;36;1mProjeto Create (0.0ms)[0m   [0;1mINSERT INTO "projetos" ("updated_at", "nome", "responsavel", "descricao", "created_at") VALUES('2009-04-22 21:28:45', '1', '1', '1', '2009-04-22 21:28:45')[0m
+Redirected to http://localhost:3000/projetos/2
+Completed in 140ms (DB: 0) | 302 Found [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:28:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 2) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 2) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/2]
+
+
+Processing ProjetosController#edit (for 127.0.0.1 at 2009-04-22 18:28:48) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 2) [0m
+Rendering template within layouts/projetos
+Rendering projetos/edit
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/2/edit]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:28:49) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#destroy (for 127.0.0.1 at 2009-04-22 18:28:52) [DELETE]
+  Parameters: {"authenticity_token"=>"0ZzHyrY4tLoE3os/bmAFwRhEY6/cOJ6ENU/euBQtghk=", "id"=>"2"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 2) [0m
+  [4;36;1mProjeto Destroy (0.0ms)[0m   [0;1mDELETE FROM "projetos" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/projetos
+Completed in 109ms (DB: 0) | 302 Found [http://localhost/projetos/2]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:28:52) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:28:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:28:57) [GET]
+  Parameters: {"projeto_id"=>"1"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (390.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:31:48) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:31:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:32:01) [GET]
+  Parameters: {"projeto_id"=>"1"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:32:49) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:32:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (16.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 156ms (View: 125, DB: 16) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:32:52) [GET]
+  Parameters: {"projeto_id"=>"1"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:33:33) [GET]
+  Parameters: {"projeto_id"=>"1"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (79.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:33:37) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:33:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:33:41) [GET]
+  Parameters: {"projeto_id"=>"1"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (359.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:35:06) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#new (for 127.0.0.1 at 2009-04-22 18:35:07) [GET]
+Rendering template within layouts/projetos
+Rendering projetos/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/new]
+
+
+Processing ProjetosController#create (for 127.0.0.1 at 2009-04-22 18:35:11) [POST]
+  Parameters: {"commit"=>"Create", "projeto"=>{"nome"=>"1", "responsavel"=>"1", "descricao"=>"1"}, "authenticity_token"=>"0ZzHyrY4tLoE3os/bmAFwRhEY6/cOJ6ENU/euBQtghk="}
+  [4;36;1mProjeto Create (0.0ms)[0m   [0;1mINSERT INTO "projetos" ("updated_at", "nome", "responsavel", "descricao", "created_at") VALUES('2009-04-22 21:35:11', '1', '1', '1', '2009-04-22 21:35:11')[0m
+Redirected to http://localhost:3000/projetos/3
+Completed in 203ms (DB: 0) | 302 Found [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:35:11) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 3) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/3]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:35:17) [GET]
+  Parameters: {"projeto_id"=>"3"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (141.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:38:07) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos/]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:38:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 3) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/3]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:38:10) [GET]
+  Parameters: {"projeto_id"=>"3"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:38:16) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:40:41) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 18:41:34) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 18:41:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 234ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-04-22 18:41:52) [GET]
+  Parameters: {"projeto_id"=>"1"}
+
+NameError (uninitialized constant BugController):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:10:42) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 1859ms (View: 1671, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:10:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 219ms (View: 203, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:10:51) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined local variable or method `bugs_path' for #<ActionView::Base:0x35f65b0>) on line #20 of app/views/bugs/new.html.erb:
+17:   </p>
+18: <% end %>
+19: 
+20: <%= link_to 'Back', bugs_path %>
+
+    app/views/bugs/new.html.erb:20
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (188.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:12:57) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined local variable or method `new_bugs_path' for #<ActionView::Base:0x492369c>) on line #20 of app/views/bugs/new.html.erb:
+17:   </p>
+18: <% end %>
+19: 
+20: <%= link_to 'Back', new_bugs_path %>
+
+    app/views/bugs/new.html.erb:20
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (141.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:13:16) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined local variable or method `new_bug_path' for #<ActionView::Base:0x49479c0>) on line #20 of app/views/bugs/new.html.erb:
+17:   </p>
+18: <% end %>
+19: 
+20: <%= link_to 'Back', new_bug_path %>
+
+    app/views/bugs/new.html.erb:20
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:13:28) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined local variable or method `bug_path' for #<ActionView::Base:0x496d06c>) on line #20 of app/views/bugs/new.html.erb:
+17:   </p>
+18: <% end %>
+19: 
+20: <%= link_to 'Back', bug_path %>
+
+    app/views/bugs/new.html.erb:20
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:14:16) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-22 19:14:25) [GET]
+
+ActionController::RoutingError (No route matches "/projetos//bugs/new" with {:method=>:get}):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:15:12) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined method `nome' for :projeto:Symbol) on line #9 of app/views/bugs/new.html.erb:
+6: 
+7:   <p>
+8:     <%= f.label :projeto %><br />
+9:     <%= f.text_field :projeto.nome %>
+10:   </p>
+11:   <p>
+12:     <%= f.label :descricao %><br />
+
+    app/views/bugs/new.html.erb:9
+    app/views/bugs/new.html.erb:3
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:16:27) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+Completed in 156ms (View: 109, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:16:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"1", "bug"=>{"projeto"=>"#<Projeto:0x4932534>", "projeto_id"=>"1", "descricao"=>"novo bug"}}
+
+ActiveRecord::AssociationTypeMismatch (Projeto(#39010240) expected, got String(#21591060)):
+  app/controllers/bugs_controller.rb:44:in `new'
+  app/controllers/bugs_controller.rb:44:in `create'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:18:47) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos/]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:18:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:18:52) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined local variable or method `projeto' for #<ActionView::Base:0x48f03a0>) on line #20 of app/views/bugs/new.html.erb:
+17:   </p>
+18: <% end %>
+19: 
+20: <%= link_to 'Back', projeto %>
+
+    app/views/bugs/new.html.erb:20
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:19:09) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+Completed in 46ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:19:13) [GET]
+  [4;35;1mProjeto Load (16.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 141ms (View: 78, DB: 16) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:19:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 266ms (View: 204, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:19:21) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:19:35) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"1", "bug"=>{"projeto"=>"#<Projeto:0x4a54c3c>", "projeto_id"=>"1", "descricao"=>"mapeamento projeto/bug"}}
+
+ActiveRecord::AssociationTypeMismatch (Projeto(#38807370) expected, got String(#21591060)):
+  app/controllers/bugs_controller.rb:44:in `new'
+  app/controllers/bugs_controller.rb:44:in `create'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:23:26) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"1", "bug"=>{"projeto"=>"#<Projeto:0x4a54c3c>", "projeto_id"=>"1", "descricao"=>"mapeamento projeto/bug"}}
+
+ActiveRecord::AssociationTypeMismatch (Projeto(#38311210) expected, got String(#21591060)):
+  app/controllers/bugs_controller.rb:44:in `new'
+  app/controllers/bugs_controller.rb:44:in `create'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (454.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:23:29) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:23:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:23:33) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:23:38) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"1", "bug"=>{"projeto_id"=>"1", "descricao"=>"bug "}}
+  [4;35;1mBug Create (0.0ms)[0m   [0mINSERT INTO "bugs" ("updated_at", "projeto_id", "descricao", "created_at") VALUES('2009-04-22 22:23:38', 1, 'bug ', '2009-04-22 22:23:38')[0m
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Redirected to http://localhost:3000/projetos/1
+Completed in 172ms (DB: 0) | 302 Found [http://localhost/projetos/1/bugs]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:23:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;35;1mBug Load (0.0ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:23:48) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:23:56) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"1", "bug"=>{"projeto_id"=>"1", "descricao"=>"mapeamento projeto/bug"}}
+  [4;35;1mBug Create (0.0ms)[0m   [0mINSERT INTO "bugs" ("updated_at", "projeto_id", "descricao", "created_at") VALUES('2009-04-22 22:23:57', 1, 'mapeamento projeto/bug', '2009-04-22 22:23:57')[0m
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Redirected to http://localhost:3000/projetos/1
+Completed in 469ms (DB: 0) | 302 Found [http://localhost/projetos/1/bugs]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:23:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;35;1mBug Load (16.0ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 63ms (View: 15, DB: 16) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:24:07) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:24:33) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined local variable or method `projeto' for #<ActionView::Base:0x49bc400>) on line #7 of app/views/bugs/new.html.erb:
+4:   <%= f.hidden_field :projeto_id %>
+5:   <%= f.error_messages %>
+6: 
+7:   <%=h projeto.nome %>
+8:   
+9:   <p>
+10:     <%= f.label :descricao %><br />
+
+    app/views/bugs/new.html.erb:7
+    app/views/bugs/new.html.erb:3
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (500.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:24:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;36;1mBug Load (0.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:24:49) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (undefined method `nome' for :projeto:Symbol) on line #7 of app/views/bugs/new.html.erb:
+4:   <%= f.hidden_field :projeto_id %>
+5:   <%= f.error_messages %>
+6: 
+7:   <%=h :projeto.nome %>
+8:   
+9:   <p>
+10:     <%= f.label :descricao %><br />
+
+    app/views/bugs/new.html.erb:7
+    app/views/bugs/new.html.erb:3
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (297.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:25:19) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.nome) on line #7 of app/views/bugs/new.html.erb:
+4:   <%= f.hidden_field :projeto_id %>
+5:   <%= f.error_messages %>
+6: 
+7:   <%=h @projeto.nome %>
+8:   
+9:   <p>
+10:     <%= f.label :descricao %><br />
+
+    app/views/bugs/new.html.erb:7
+    app/views/bugs/new.html.erb:3
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (688.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:26:34) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:26:38) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:26:41) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 3) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/3]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:26:42) [GET]
+  Parameters: {"projeto_id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/3/bugs/new]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:26:45) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:26:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;35;1mBug Load (0.0ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:27:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;36;1mBug Load (15.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 156ms (View: 125, DB: 15) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:27:25) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1/bugs/new]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:28:01) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:28:04) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 3) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/3]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:28:08) [GET]
+  Parameters: {"projeto_id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/3/bugs/new]
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:28:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"3", "bug"=>{"projeto_id"=>"3", "descricao"=>"alterar nome deste projeto"}}
+  [4;36;1mBug Create (0.0ms)[0m   [0;1mINSERT INTO "bugs" ("updated_at", "projeto_id", "descricao", "created_at") VALUES('2009-04-22 22:28:18', 3, 'alterar nome deste projeto', '2009-04-22 22:28:18')[0m
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Redirected to http://localhost:3000/projetos/3
+Completed in 188ms (DB: 0) | 302 Found [http://localhost/projetos/3/bugs]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:28:18) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 3) [0m
+  [4;36;1mBug Load (0.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 3) [0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/3]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:28:30) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:29:19) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 219ms (View: 204, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:30:05) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:30:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;36;1mBug Load (0.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 46ms (View: 31, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:30:32) [GET]
+  Parameters: {"projeto_id"=>"1"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+
+ActionView::TemplateError (undefined local variable or method `projeto' for #<ActionView::Base:0x49af1d8>) on line #8 of app/views/bugs/new.html.erb:
+5:   <%= f.error_messages %>
+6: 
+7:   <%= @projeto = Projeto.find(params[:projeto_id]) %>
+8:   <b>Projeto:</b> <%=h projeto.nome  %>
+9:   
+10:   <p>
+11:     <%= f.label :descricao %><br />
+
+    app/views/bugs/new.html.erb:8
+    app/views/bugs/new.html.erb:3
+    app/controllers/bugs_controller.rb:30:in `new'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (359.0ms)
+Rendered rescues/_request_and_response (16.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:30:43) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:31:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (16.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;36;1mBug Load (0.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:31:18) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:31:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;36;1mBug Load (0.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:31:30) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#new (for 127.0.0.1 at 2009-04-22 19:36:57) [GET]
+Rendering template within layouts/projetos
+Rendering projetos/new
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/projetos/new]
+
+
+Processing ProjetosController#create (for 127.0.0.1 at 2009-04-22 19:37:25) [POST]
+  Parameters: {"commit"=>"Create", "projeto"=>{"nome"=>"SISP", "responsavel"=>"Márcia Marques", "descricao"=>"Sistema de controle de emprestimo de materiais da FAC"}, "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE="}
+  [4;36;1mProjeto Create (0.0ms)[0m   [0;1mINSERT INTO "projetos" ("updated_at", "nome", "responsavel", "descricao", "created_at") VALUES('2009-04-22 22:37:25', 'SISP', 'Márcia Marques', 'Sistema de controle de emprestimo de materiais da FAC', '2009-04-22 22:37:25')[0m
+Redirected to http://localhost:3000/projetos/4
+Completed in 172ms (DB: 0) | 302 Found [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:37:25) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 4) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/4]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:37:36) [GET]
+  Parameters: {"projeto_id"=>"4"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/4/bugs/new]
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:37:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"4", "bug"=>{"projeto_id"=>"4", "descricao"=>"CRUD usuarios"}}
+  [4;35;1mBug Create (0.0ms)[0m   [0mINSERT INTO "bugs" ("updated_at", "projeto_id", "descricao", "created_at") VALUES('2009-04-22 22:37:42', 4, 'CRUD usuarios', '2009-04-22 22:37:42')[0m
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Redirected to http://localhost:3000/projetos/4
+Completed in 172ms (DB: 0) | 302 Found [http://localhost/projetos/4/bugs]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:37:42) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 4) [0m
+  [4;35;1mBug Load (0.0ms)[0m   [0mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 4) [0m
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/projetos/4]
+
+
+Processing BugsController#new (for 127.0.0.1 at 2009-04-22 19:37:43) [GET]
+  Parameters: {"projeto_id"=>"4"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Rendering template within layouts/bugs
+Rendering bugs/new
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos/4/bugs/new]
+
+
+Processing BugsController#create (for 127.0.0.1 at 2009-04-22 19:37:51) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "projeto_id"=>"4", "bug"=>{"projeto_id"=>"4", "descricao"=>"CRUD equipamentos"}}
+  [4;36;1mBug Create (16.0ms)[0m   [0;1mINSERT INTO "bugs" ("updated_at", "projeto_id", "descricao", "created_at") VALUES('2009-04-22 22:37:51', 4, 'CRUD equipamentos', '2009-04-22 22:37:51')[0m
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Redirected to http://localhost:3000/projetos/4
+Completed in 187ms (DB: 16) | 302 Found [http://localhost/projetos/4/bugs]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:37:51) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 4) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 4) [0m
+  [4;36;1mBug Load (0.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 4) [0m
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/projetos/4]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:38:54) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#show (for 127.0.0.1 at 2009-04-22 19:39:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 1) [0m
+Rendering template within layouts/projetos
+Rendering projetos/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+  [4;36;1mBug Load (16.0ms)[0m   [0;1mSELECT * FROM "bugs" WHERE ("bugs".projeto_id = 1) [0m
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/projetos/1]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:39:29) [GET]
+  [4;35;1mProjeto Load (0.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#edit (for 127.0.0.1 at 2009-04-22 19:39:31) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+Rendering template within layouts/projetos
+Rendering projetos/edit
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/projetos/3/edit]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:39:35) [GET]
+  [4;35;1mProjeto Load (16.0ms)[0m   [0mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 32ms (View: 16, DB: 16) | 200 OK [http://localhost/projetos]
+
+
+Processing ProjetosController#destroy (for 127.0.0.1 at 2009-04-22 19:39:39) [DELETE]
+  Parameters: {"authenticity_token"=>"RPUN1LI1ved7XGH8YXkIanLh2+YjFBYU3+cLc25nXFE=", "id"=>"3"}
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" WHERE ("projetos"."id" = 3) [0m
+  [4;35;1mProjeto Destroy (0.0ms)[0m   [0mDELETE FROM "projetos" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/projetos
+Completed in 125ms (DB: 0) | 302 Found [http://localhost/projetos/3]
+
+
+Processing ProjetosController#index (for 127.0.0.1 at 2009-04-22 19:39:39) [GET]
+  [4;36;1mProjeto Load (0.0ms)[0m   [0;1mSELECT * FROM "projetos" [0m
+Rendering template within layouts/projetos
+Rendering projetos/index
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/projetos]

@@ -1,0 +1,29 @@
+<p>
+  <b>Nome:</b>
+  <%=h @projeto.nome %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%=h @projeto.descricao %>
+</p>
+
+<p>
+  <b>Responsavel:</b>
+  <%=h @projeto.responsavel %>
+</p>
+
+<p>
+	<% if !@projeto.bugs.empty? %>
+	<b> Bugs: </b>
+	<ul>
+		<% @projeto.bugs.each do |bug| %>
+			<li><%=h bug.id %> - <%=h bug.descricao %></li>
+		<%end%>
+	</ul>
+	<%end%>
+</p>
+
+<%= link_to 'Novo Bug', new_projeto_bug_path(@projeto) %>
+<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+<%= link_to 'Back', projetos_path %>

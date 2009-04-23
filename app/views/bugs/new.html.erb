@@ -1,0 +1,19 @@
+<h1>New bug</h1>
+
+<% form_for([:projeto, @bug]) do |f| %>
+  <%= f.hidden_field :projeto_id %>
+  <%= f.error_messages %>
+
+  <%= @projeto = Projeto.find(params[:projeto_id]) %>
+  <b>Projeto:</b> <%=h @projeto.nome  %>
+  
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', projetos_path %>

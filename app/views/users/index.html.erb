@@ -1,10 +1,10 @@
-<h1>Listing users</h1>
+<h1>Listagem de Usuários</h1>
 
-<table border=1>
+<table>
   <tr>
     <th>Login</th>
-    <th>Password</th>
-    <th>Name</th>
+    <th>Senha</th>
+    <th>Nome</th>
     <th>Email</th>
   </tr>
 
@@ -14,13 +14,13 @@
     <td><%=h user.password %></td>
     <td><%=h user.name %></td>
     <td><%=h user.email %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Visualizar', user %></td>
+    <td><%= link_to 'Editar', edit_user_path(user) %></td>
+    <td><%= link_to 'Excluir', user, :confirm => 'Tem Certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New user', new_user_path %>
+<%= link_to 'Novo', new_user_path %>

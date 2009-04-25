@@ -1,7 +1,7 @@
 class CreateProjetos < ActiveRecord::Migration
   def self.up
     create_table :projetos do |t|
-      t.string :nome
+      t.string :nome, :null
       t.string :descricao
       t.string :responsavel
 

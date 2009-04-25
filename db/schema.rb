@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090422210927) do
+ActiveRecord::Schema.define(:version => 20090425014436) do
 
   create_table "bugs", :force => true do |t|
     t.integer  "projeto_id", :null => false
@@ -18,10 +18,59 @@ ActiveRecord::Schema.define(:version => 20090422210927) do
     t.datetime "updated_at"
   end
 
+  create_table "project_memberships", :force => true do |t|
+    t.date     "joined",     :null => false
+    t.date     "leaved"
+    t.integer  "user_id",    :null => false
+    t.integer  "project_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_memberships", ["user_id", "project_id"], :name => "index_project_memberships_on_user_id_and_project_id", :unique => true
+
+  create_table "projects", :force => true do |t|
+    t.string   "name",        :limit => 50, :null => false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["name"], :name => "index_projects_on_name", :unique => true
+
   create_table "projetos", :force => true do |t|
     t.string   "nome"
     t.string   "descricao"
     t.string   "responsavel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "task_types", :force => true do |t|
+    t.string   "name",       :limit => 50, :null => false
+    t.integer  "project_id",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_types", ["project_id", "name"], :name => "index_task_types_on_project_id_and_name", :unique => true
+
+  create_table "time_logs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "task_type_id"
+    t.text     "description"
+    t.date     "task_date"
+    t.time     "worked_hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timelogs", :force => true do |t|
+    t.integer  "user_id",      :null => false
+    t.integer  "task_type_id", :null => false
+    t.text     "description"
+    t.date     "task_date",    :null => false
+    t.time     "worked_hours", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
